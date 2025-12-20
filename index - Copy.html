@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quad Stuff</title>
+
+<style>
+    body {
+        background: #111;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 20px 0;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 20px;
+        flex-wrap: wrap; /* stacks on small screens */
+    }
+
+    .item {
+        text-align: center;
+        width: 180px; /* fixed width for neat layout */
+    }
+
+    .thumb {
+        cursor: pointer;
+        border-radius: 12px;
+        width: 100%;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .thumb:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    h2 {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Quad Stuff</h1>
+
+<div class="row">
+
+    <!-- Pano Item -->
+    <div class="item">
+        <img src="pano-icon.png" class="thumb"
+             onclick="location.href='/quadstuff/pano/index.html'"
+             alt="Panorama Viewer">
+        <h2>Panorama pictures taken on Mini 4 Pro</h2>
+    </div>
+
+    <!-- Drone Videos Item -->
+    <div class="item">
+        <img src="drone-icon.png" class="thumb"
+             onclick="location.href='/quadstuff/m4v'"
+             alt="Mini 4 Videos">
+        <h2>DJI Mini 4 How To Videos </h2>
+    </div>
+
+    <!-- Drone Videos Item -->
+    <div class="item">
+        <img src="hiber.png" class="thumb"
+             onclick="location.href='/quadstuff/hib'"
+             alt="Hibernation repair videos">
+        <h2>Hibernation Repair Videos</h2>
+    </div>
+	    <!-- Drone Videos Item -->
+    <div class="item">
+        <img src="fpv.png" class="thumb"
+             onclick="location.href='/quadstuff/fpv'"
+             alt="DJI Phantom 2 and 3 Loss of FPV Repair Videos">
+        <h2>DJI Phantom 2 and 3 Loss of FPV Repair Videos</h2>
+    </div>
+	 <div class="item">
+        <img src="p2.png" class="thumb"
+             onclick="location.href='/quadstuff/p2'"
+             alt="DJI Phantom 2 How To Videos">
+        <h2>DJI Phantom 2 How To Videos</h2>
+    </div>
+
+</div>
+
+</body>
+</html>

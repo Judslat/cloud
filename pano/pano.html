@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Panorama Viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Pannellum -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+<style>
+html, body { margin:0; height:100%; font-family: Arial, sans-serif; background: #000; color: #fff; }
+#panorama { width: 100%; height: 100vh; }
+#backBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+    padding: 8px 12px;
+    font-size: 14px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#backBtn:active {
+    background: rgba(0,0,0,0.8);
+}
+</style>
+</head>
+<body>
+
+<button id="backBtn">⬅ Back</button>
+<div id="panorama"></div>
+
+<script>
+// ----------------------------
+// SAVE USER SELECTION
+// ----------------------------
+function setViewMode(mode) {
+    localStorage.setItem("viewMode", mode);
+    location.reload();
+}
+
+// ----------------------------
+// DEVICE AUTO DETECTION
+// ----------------------------
+function detectDefaultMode() {
+    const saved = localStorage.getItem("viewMode");
+    if (saved) return saved;
+
+    const isMobile =
+        typeof window.orientation !== "undefined" ||
+        navigator.userAgent.includes("Mobile") ||
+        navigator.maxTouchPoints > 1;
+
+    return isMobile ? "phone" : "pc";
+}
+
+// ----------------------------
+// GET IMAGE PATH
+// ----------------------------
+function getImagePath(filename) {
+    if (!filename) filename = "Blackburn.jpg"; // fallback
+    const mode = detectDefaultMode();
+    return mode === "phone" ? "images/" + filename.replace(".jpg", "-small.jpg") : "images/" + filename;
+}
+
+// ----------------------------
+// EXTRACT ?img=FILENAME
+// ----------------------------
+const params = new URLSearchParams(window.location.search);
+const baseName = params.get("img") || "Blackburn.jpg";
+const panoImage = getImagePath(baseName);
+
+console.log("Loading image:", panoImage);
+
+// ----------------------------
+// INIT PANORAMA
+// ----------------------------
+pannellum.viewer('panorama', {
+    type: "equirectangular",
+    panorama: panoImage,
+    autoLoad: true,
+    showZoomCtrl: true,
+    showFullscreenCtrl: true
+});
+
+// ----------------------------
+// BACK BUTTON
+// ----------------------------
+const backBtn = document.getElementById("backBtn");
+backBtn.addEventListener("click", () => {
+    window.location.href = "index.html";
+});
+
+// Optional: reposition on phone for easier thumb access
+if (detectDefaultMode() === "phone") {
+    backBtn.style.top = "auto";
+    backBtn.style.bottom = "10px";
+    backBtn.style.left = "50%";
+    backBtn.style.transform = "translateX(-50%)";
+    backBtn.style.fontSize = "16px";
+    backBtn.style.padding = "10px 16px";
+}
+</script>
+
+</body>
+</html>

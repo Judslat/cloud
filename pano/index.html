@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Select a Panorama</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SOCIAL PREVIEW -->
+<meta property="og:title" content="360° Virtual Tour">
+<meta property="og:description" content="Tap to explore interactive 360° panoramas.">
+<meta property="og:image" content="images/united-thumb.jpg">
+<meta property="og:type" content="website">
+
+<style>
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+}
+
+/* MOBILE-FIRST GRID */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px;
+}
+
+/* TABLETS */
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 1000px) {
+    .gallery {
+        grid-template-columns: repeat(7, 1fr);
+        max-width: 1400px;
+        margin: auto;
+    }
+}
+
+.thumb {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+}
+
+.thumb img {
+    width: 100%;
+    display: block;
+    transition: transform 0.25s ease, opacity 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.thumb:hover img {
+    transform: scale(1.05);
+}
+
+.thumb:active img {
+    transform: scale(0.97);
+    opacity: 0.85;
+}
+
+.label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    padding: 6px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.thumb a {
+    text-decoration: none;
+    color: white;
+}
+
+/* BACK BUTTON AT BOTTOM */
+.back {
+    display: block;
+    width: calc(100% - 24px);
+    margin: 20px auto 30px;
+    padding: 18px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: #222;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.back:hover {
+    background: #333;
+}
+
+/* Bigger on phones */
+@media (max-width: 600px) {
+    .back {
+        font-size: 20px;
+        padding: 22px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Select a Panorama<br>
+Email flymyphantom@outlook.com if you want me to host a Pano</h1>
+
+<div class="gallery">
+
+    <div class="thumb">
+        <a href="pano.html?img=blackburn.jpg">
+            <img src="images/blackburn-thumb.jpg" alt="Blackburn" loading="lazy">
+            <div class="label">Blackburn FC</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=city.jpg">
+            <img src="images/city-thumb.jpg" alt="City" loading="lazy">
+            <div class="label">Etihad Stadium</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=united.jpg">
+            <img src="images/united-thumb.jpg" alt="United" loading="lazy">
+            <div class="label">United Old Trafford</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=stockport.jpg">
+            <img src="images/stockport-thumb.jpg" alt="Stockport" loading="lazy">
+            <div class="label">Stockport FC</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=bolton.jpg">
+            <img src="images/bolton-thumb.jpg" alt="Bolton" loading="lazy">
+            <div class="label">Bolton FC</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=salewaterpark.jpg">
+            <img src="images/salewaterpark-thumb.jpg" alt="Sale Water Park" loading="lazy">
+            <div class="label">Sale Water Park</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=presthavencaravanpark.jpg">
+            <img src="images/presthavencaravanpark-thumb.jpg" alt="Presthaven Caravan Park" loading="lazy">
+            <div class="label">Presthaven Caravan Park</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=presthavenbeach.jpg">
+            <img src="images/presthavenbeach-thumb.jpg" alt="Presthaven Beach" loading="lazy">
+            <div class="label">Presthaven Beach</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=burnley.jpg">
+            <img src="images/burnley-thumb.jpg" alt="Burnley" loading="lazy">
+            <div class="label">Burnley FC</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=riu.jpg">
+            <img src="images/riu-thumb.jpg" alt="Riu Bavaro" loading="lazy">
+            <div class="label">Riu Bavaro</div>
+        </a>
+    </div>
+
+    <div class="thumb">
+        <a href="pano.html?img=macc.jpg">
+            <img src="images/macc-thumb.jpg" alt="Macclesfield" loading="lazy">
+            <div class="label">Macclesfield FC</div>
+        </a>
+    </div>
+
+</div>
+
+<!-- BACK BUTTON -->
+<a class="back" href="../index.html">⬅ Back</a>
+
+
+</body>
+</html>

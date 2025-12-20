@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quad Stuff</title>
+
+<style>
+    body {
+        background: #111;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 20px 0;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 20px;
+        flex-wrap: wrap; /* stacks on small screens */
+    }
+
+    .item {
+        text-align: center;
+        width: 180px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .thumb {
+        border-radius: 12px;
+        width: 100%;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .item:hover .thumb {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    h2 {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Quad Stuff</h1>
+
+<div class="row">
+
+    <!-- Pano Item -->
+    <a class="item" href="pano/">
+        <img src="pano-icon.png" class="thumb" alt="Panorama Viewer">
+        <h2>Panorama pictures taken on Mini 4 Pro</h2>
+    </a>
+
+    <!-- Mini 4 Videos -->
+    <a class="item" href="m4v/">
+        <img src="drone-icon.png" class="thumb" alt="Mini 4 Videos">
+        <h2>DJI Mini 4 How To Videos</h2>
+    </a>
+
+    <!-- Hibernation -->
+    <a class="item" href="hib/">
+        <img src="hiber.png" class="thumb" alt="Hibernation repair videos">
+        <h2>Hibernation Repair Videos</h2>
+    </a>
+
+    <!-- FPV -->
+    <a class="item" href="fpv/">
+        <img src="fpv.png" class="thumb" alt="DJI Phantom FPV">
+        <h2>DJI Phantom 2 & 3 Loss of FPV Repair</h2>
+    </a>
+
+    <!-- Phantom 2 -->
+    <a class="item" href="p2/">
+        <img src="p2.png" class="thumb" alt="DJI Phantom 2">
+        <h2>DJI Phantom 2 How To Videos</h2>
+    </a>
+
+</div>
+
+</body>
+</html>
