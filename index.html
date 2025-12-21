@@ -1,3 +1,5 @@
+<p style="color:red">CLOUDFLARE TEST</p>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,16 +17,27 @@
         text-align: center;
     }
 
-    h1 {
-        margin: 20px 0;
+    /* Desktop layout only */
+    @media (min-width: 1024px) {
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:
+                linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                url("quad1080.jpg") no-repeat center center fixed;
+            background-size: contain;
+        }
     }
 
     .row {
         display: flex;
         justify-content: center;
         gap: 40px;
+        flex-wrap: wrap;
         padding: 20px;
-        flex-wrap: wrap; /* stacks on small screens */
+        max-width: 1400px;
     }
 
     .item {
@@ -35,25 +48,26 @@
     }
 
     .thumb {
-        border-radius: 12px;
+        border-radius: 14px;
         width: 100%;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.45);
         transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
     .item:hover .thumb {
         transform: scale(1.05);
-        opacity: 0.9;
+        opacity: 0.95;
     }
 
     h2 {
-        margin-top: 10px;
+        margin-top: 12px;
         font-size: 18px;
+        font-weight: normal;
     }
 </style>
 </head>
-<body>
 
-<h1>Quad Stuff</h1>
+<body>
 
 <div class="row">
 
@@ -86,6 +100,36 @@
         <img src="p2.png" class="thumb" alt="DJI Phantom 2">
         <h2>DJI Phantom 2 How To Videos</h2>
     </a>
+    <!-- Pano Item -->
+    <a class="item" href="pano/">
+        <img src="pano-icon.png" class="thumb" alt="Panorama Viewer">
+        <h2>Panorama pictures taken on Mini 4 Pro</h2>
+    </a>
+
+    <!-- Mini 4 Videos -->
+    <a class="item" href="m4v/">
+        <img src="drone-icon.png" class="thumb" alt="Mini 4 Videos">
+        <h2>DJI Mini 4 How To Videos</h2>
+    </a>
+
+    <!-- Hibernation -->
+    <a class="item" href="hib/">
+        <img src="hiber.png" class="thumb" alt="Hibernation repair videos">
+        <h2>Hibernation Repair Videos</h2>
+    </a>
+
+    <!-- FPV -->
+    <a class="item" href="fpv/">
+        <img src="fpv.png" class="thumb" alt="DJI Phantom FPV">
+        <h2>DJI Phantom 2 & 3 Loss of FPV Repair</h2>
+    </a>
+
+    <!-- Phantom 2 -->
+    <a class="item" href="p2/">
+        <img src="p2.png" class="thumb" alt="DJI Phantom 2">
+        <h2>DJI Phantom 2 How To Videos</h2>
+    </a>
+
 
 </div>
 
