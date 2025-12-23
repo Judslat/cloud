@@ -13,7 +13,9 @@
         padding: 10px;
         text-align: center;
     }
-    h1 { margin-bottom: 20px; }
+    h1 {
+        margin-bottom: 20px;
+    }
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -27,7 +29,10 @@
         transition: transform 0.2s ease;
         cursor: pointer;
     }
-    .video:hover { transform: scale(1.03); background: #333; }
+    .video:hover {
+        transform: scale(1.03);
+        background: #333;
+    }
     img {
         width: 100%;
         border-radius: 8px;
@@ -45,18 +50,16 @@
 <h1>DJI Mini 4 Pro Portugal Flight Video</h1>
 
 <div class="grid">
-
     <!-- Example video item -->
     <a class="video" href="https://www.youtube.com/watch?v=3wVL-CECcnc" target="_blank">
-        <img src="https://img.youtube.com/vi/3wVL-CECcnc/hqdefault.jpg">
+        <img src="https://img.youtube.com/vi/3wVL-CECcnc/hqdefault.jpg" alt="Portimao beach flight September 2024 4K">
         <p>Portimao beach flight September 2024 4K</p>
     </a>
 
     <a class="video" href="https://www.youtube.com/watch?v=9_ZrSdeOGYI" target="_blank">
-        <img src="https://img.youtube.com/vi/9_ZrSdeOGYI/hqdefault.jpg">
+        <img src="https://img.youtube.com/vi/9_ZrSdeOGYI/hqdefault.jpg" alt="Alvor Beach flight September 2024 in 4K">
         <p>Alvor Beach flight September 2024 in 4K</p>
     </a>
-
 </div>
 
 <a class="back" onclick="history.back()">⬅ Back</a>
