@@ -10,8 +10,19 @@
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
 <style>
-html, body { margin:0; height:100%; font-family: Arial, sans-serif; background: #000; color: #fff; }
-#panorama { width: 100%; height: 100vh; }
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+#panorama {
+    width: 100%;
+    height: 100vh;
+}
+
 #backBtn {
     position: absolute;
     top: 10px;
@@ -25,7 +36,8 @@ html, body { margin:0; height:100%; font-family: Arial, sans-serif; background: 
     border-radius: 5px;
     cursor: pointer;
 }
-#backBtn:active {
+
+#backBtn:hover {
     background: rgba(0,0,0,0.8);
 }
 </style>
@@ -37,43 +49,11 @@ html, body { margin:0; height:100%; font-family: Arial, sans-serif; background: 
 
 <script>
 // ----------------------------
-// SAVE USER SELECTION
-// ----------------------------
-function setViewMode(mode) {
-    localStorage.setItem("viewMode", mode);
-    location.reload();
-}
-
-// ----------------------------
-// DEVICE AUTO DETECTION
-// ----------------------------
-function detectDefaultMode() {
-    const saved = localStorage.getItem("viewMode");
-    if (saved) return saved;
-
-    const isMobile =
-        typeof window.orientation !== "undefined" ||
-        navigator.userAgent.includes("Mobile") ||
-        navigator.maxTouchPoints > 1;
-
-    return isMobile ? "phone" : "pc";
-}
-
-// ----------------------------
-// GET IMAGE PATH
-// ----------------------------
-function getImagePath(filename) {
-    if (!filename) filename = "Blackburn.jpg"; // fallback
-    const mode = detectDefaultMode();
-    return mode === "phone" ? "images/" + filename.replace(".jpg", "-small.jpg") : "images/" + filename;
-}
-
-// ----------------------------
-// EXTRACT ?img=FILENAME
+// GET IMAGE FROM URL
 // ----------------------------
 const params = new URLSearchParams(window.location.search);
-const baseName = params.get("img") || "Blackburn.jpg";
-const panoImage = getImagePath(baseName);
+const imageName = params.get("img") || "Blackburn.jpg";
+const panoImage = "images/" + imageName;
 
 console.log("Loading image:", panoImage);
 
@@ -91,20 +71,9 @@ pannellum.viewer('panorama', {
 // ----------------------------
 // BACK BUTTON
 // ----------------------------
-const backBtn = document.getElementById("backBtn");
-backBtn.addEventListener("click", () => {
+document.getElementById("backBtn").addEventListener("click", () => {
     window.location.href = "index.html";
 });
-
-// Optional: reposition on phone for easier thumb access
-if (detectDefaultMode() === "phone") {
-    backBtn.style.top = "auto";
-    backBtn.style.bottom = "10px";
-    backBtn.style.left = "50%";
-    backBtn.style.transform = "translateX(-50%)";
-    backBtn.style.fontSize = "16px";
-    backBtn.style.padding = "10px 16px";
-}
 </script>
 
 </body>
